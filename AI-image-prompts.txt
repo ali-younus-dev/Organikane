@@ -1,0 +1,167 @@
+ORGANIKANE — AI IMAGE PROMPT SHEET
+=================================
+
+Use this with any image generator (Midjourney, DALL-E / ChatGPT, Ideogram, Firefly, Flux, Gemini...).
+The goal is a set of consistent, clean product photos that drop straight into the website.
+
+1. STYLE GUIDE (paste at the end of EVERY prompt)
+-------------------------------------------------
+"Soft natural daylight, subtle contact shadow, seamless warm off-white background (#F3F6EE), shot slightly above eye level, shallow depth of field, clean editorial product photography, eco-friendly premium feel, no text, no logos, no people, no watermark, 4:5 ratio, high detail"
+
+For a transparent look, ask for "plain white background" and then remove the background (remove.bg, Photoshop, Canva, or Adobe Express - free).
+
+2. HOW TO ADD A PHOTO TO THE SITE
+---------------------------------
+a) Remove the background and export as WebP or PNG, about 1000 px wide.
+b) Save it in:  images/products/   (for example images/products/paper-straw-8mm-black.webp)
+c) Open js/products-data.js, find that product and add one line:
+       photo: 'images/products/paper-straw-8mm-black.webp',
+   Done. The site now uses your photo instead of the illustration. Nothing else to change.
+   (Two products already use photos: bagasse straws and bagasse plates & containers.)
+
+Tips: keep every product the same size on the canvas, same camera angle and the same light. That consistency is what makes the catalogue look expensive.
+
+3. PRODUCT PROMPTS (30)
+-------------------------------
+
+01. Paper straws 6 mm, black   [paper-straw-6mm-black]
+Prompt: Realistic product photograph of paper straws 6 mm, black (6 mm, Black), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/paper-straw-6mm-black.webp
+
+02. Paper straws 8 mm, black   [paper-straw-8mm-black]
+Prompt: Realistic product photograph of paper straws 8 mm, black (8 mm, Black), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/paper-straw-8mm-black.webp
+
+03. Paper straws 8 mm, white   [paper-straw-8mm-white]
+Prompt: Realistic product photograph of paper straws 8 mm, white (8 mm, White), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/paper-straw-8mm-white.webp
+
+04. Paper straws 8 mm, red & white stripe   [paper-straw-8mm-red-white]
+Prompt: Realistic product photograph of paper straws 8 mm, red & white stripe (8 mm, Red & white stripe), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/paper-straw-8mm-red-white.webp
+
+05. Bagasse straws 6 mm   [bagasse-straws-6mm]
+Prompt: Realistic product photograph of bagasse straws 6 mm (6 mm, Sugarcane fibre), made of pressed sugarcane-fibre (bagasse), warm cream-beige with a fine fibrous texture, arranged simply as a retail catalogue shot.
+Save as: images/products/bagasse-straws-6mm.webp
+
+06. Plastic straws 8 mm, straight   [plastic-straws-8mm-straight]
+Prompt: Realistic product photograph of plastic straws 8 mm, straight (8 mm, White & black, Straight), made of clear crystal plastic (PET / PP), glossy with soft reflections, arranged simply as a retail catalogue shot.
+Save as: images/products/plastic-straws-8mm-straight.webp
+
+07. Plastic straws 6 mm, bendy   [plastic-straws-6mm-bendy]
+Prompt: Realistic product photograph of plastic straws 6 mm, bendy (6 mm, White & black, Bendy), made of clear crystal plastic (PET / PP), glossy with soft reflections, arranged simply as a retail catalogue shot.
+Save as: images/products/plastic-straws-6mm-bendy.webp
+
+08. Paper-wrapped straws with branding   [paper-wrapped-straws-branded]
+Prompt: Realistic product photograph of paper-wrapped straws with branding (Individually wrapped, Your logo), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/paper-wrapped-straws-branded.webp
+
+09. Bagasse cutlery   [bagasse-cutlery]
+Prompt: Realistic product photograph of bagasse cutlery (Fork, Knife, Spoon), made of pressed sugarcane-fibre (bagasse), warm cream-beige with a fine fibrous texture, arranged simply as a retail catalogue shot.
+Save as: images/products/bagasse-cutlery.webp
+
+10. Wooden cutlery   [wooden-cutlery]
+Prompt: Realistic product photograph of wooden cutlery (Fork, Knife, Spoon), made of light birchwood, smooth, pale, arranged simply as a retail catalogue shot.
+Save as: images/products/wooden-cutlery.webp
+
+11. Plastic cutlery   [plastic-cutlery]
+Prompt: Realistic product photograph of plastic cutlery (Fork, Knife, Spoon), made of clear crystal plastic (PET / PP), glossy with soft reflections, arranged simply as a retail catalogue shot.
+Save as: images/products/plastic-cutlery.webp
+
+12. Wooden stirrer   [wooden-stirrer]
+Prompt: Realistic product photograph of wooden stirrer (Hot & cold drinks), made of light birchwood, smooth, pale, arranged simply as a retail catalogue shot.
+Save as: images/products/wooden-stirrer.webp
+
+13. Double wall paper cups 8 oz   [paper-cup-8oz-double-wall]
+Prompt: Realistic product photograph of double wall paper cups 8 oz (8 oz, Double wall, With lid), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/paper-cup-8oz-double-wall.webp
+
+14. Double wall paper cups 12 oz   [paper-cup-12oz-double-wall]
+Prompt: Realistic product photograph of double wall paper cups 12 oz (12 oz, Double wall, With lid), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/paper-cup-12oz-double-wall.webp
+
+15. Plastic cold cups 12 oz   [plastic-cold-cup-12oz]
+Prompt: Realistic product photograph of plastic cold cups 12 oz (12 oz, Clear, Dome lid), made of clear crystal plastic (PET / PP), glossy with soft reflections, arranged simply as a retail catalogue shot.
+Save as: images/products/plastic-cold-cup-12oz.webp
+
+16. Plastic cold cups 16 oz   [plastic-cold-cup-16oz]
+Prompt: Realistic product photograph of plastic cold cups 16 oz (16 oz, Clear, Dome lid), made of clear crystal plastic (PET / PP), glossy with soft reflections, arranged simply as a retail catalogue shot.
+Save as: images/products/plastic-cold-cup-16oz.webp
+
+17. Coffee PET cans   [coffee-pet-cans]
+Prompt: Realistic product photograph of coffee pet cans (PET, Ready-to-drink), made of clear crystal plastic (PET / PP), glossy with soft reflections, arranged simply as a retail catalogue shot.
+Save as: images/products/coffee-pet-cans.webp
+
+18. Aluminium container F1   [aluminium-container-f1]
+Prompt: Realistic product photograph of aluminium container f1 (Size F1, With lid), made of brushed silver aluminium foil, arranged simply as a retail catalogue shot.
+Save as: images/products/aluminium-container-f1.webp
+
+19. Aluminium container F2   [aluminium-container-f2]
+Prompt: Realistic product photograph of aluminium container f2 (Size F2, With lid), made of brushed silver aluminium foil, arranged simply as a retail catalogue shot.
+Save as: images/products/aluminium-container-f2.webp
+
+20. Aluminium container F3   [aluminium-container-f3]
+Prompt: Realistic product photograph of aluminium container f3 (Size F3, With lid), made of brushed silver aluminium foil, arranged simply as a retail catalogue shot.
+Save as: images/products/aluminium-container-f3.webp
+
+21. Kraft salad bowl   [kraft-salad-bowl]
+Prompt: Realistic product photograph of kraft salad bowl (Kraft, Clear lid), made of brown kraft paper, matte, slightly fibrous, arranged simply as a retail catalogue shot.
+Save as: images/products/kraft-salad-bowl.webp
+
+22. Bagasse plates & containers   [bagasse-plates-containers]
+Prompt: Realistic product photograph of bagasse plates & containers (Plates, Bowls, Containers), made of pressed sugarcane-fibre (bagasse), warm cream-beige with a fine fibrous texture, arranged simply as a retail catalogue shot.
+Save as: images/products/bagasse-plates-containers.webp
+
+23. Kraft burger boxes   [kraft-burger-boxes]
+Prompt: Realistic product photograph of kraft burger boxes (Kraft, Fold-lid), made of brown kraft paper, matte, slightly fibrous, arranged simply as a retail catalogue shot.
+Save as: images/products/kraft-burger-boxes.webp
+
+24. Kraft dessert boxes   [kraft-dessert-boxes]
+Prompt: Realistic product photograph of kraft dessert boxes (Kraft, Window front), made of brown kraft paper, matte, slightly fibrous, arranged simply as a retail catalogue shot.
+Save as: images/products/kraft-dessert-boxes.webp
+
+25. Plastic sauce dips   [plastic-sauce-dips]
+Prompt: Realistic product photograph of plastic sauce dips (Portion cups, With lids), made of clear crystal plastic (PET / PP), glossy with soft reflections, arranged simply as a retail catalogue shot.
+Save as: images/products/plastic-sauce-dips.webp
+
+26. Tissue paper, small   [tissue-paper-small]
+Prompt: Realistic product photograph of tissue paper, small (Small), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/tissue-paper-small.webp
+
+27. Tissue paper, large   [tissue-paper-large]
+Prompt: Realistic product photograph of tissue paper, large (Large), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/tissue-paper-large.webp
+
+28. Kraft takeaway bags   [kraft-takeaway-bags]
+Prompt: Realistic product photograph of kraft takeaway bags (Kraft, Paper handles), made of brown kraft paper, matte, slightly fibrous, arranged simply as a retail catalogue shot.
+Save as: images/products/kraft-takeaway-bags.webp
+
+29. Paper table mats   [paper-table-mats]
+Prompt: Realistic product photograph of paper table mats (Tray & table mats), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/paper-table-mats.webp
+
+30. Butter paper   [butter-paper]
+Prompt: Realistic product photograph of butter paper (Greaseproof, Roll & sheets), made of natural uncoated paper, arranged simply as a retail catalogue shot.
+Save as: images/products/butter-paper.webp
+
+
+4. HERO AND SCENE IMAGES (optional upgrades)
+--------------------------------------------
+Hero 1 (images/hero-1.webp, wide, 1.0:1): "A neat flat-lay arrangement of paper straws in black, white and red-white stripe standing in a kraft cup, with fresh green bamboo leaves, on a soft sage-green surface, natural daylight"
+Hero 2 (images/hero-2.webp, 1.25:1): "Stack of compostable bagasse plates and food containers with wooden cutlery on a light linen cloth, fresh green leaves on the side, morning light"
+Hero 3 (images/hero-3.webp, 1.27:1): "Takeaway scene: kraft paper bag, kraft burger box and a double wall paper coffee cup on a sunlit cafe table, green plants in the background, no branding"
+Scene - Cafes: "Three coffee cups of different sizes with paper straws on a cafe counter, steam rising, warm light"
+Scene - Takeaway: "Kraft takeaway bags, burger boxes and sauce dips lined up on a wooden counter"
+Scene - Events: "Catering table with aluminium containers, bagasse plates and wooden cutlery for a large party"
+Scene - Bakeries: "Kraft dessert boxes with cake slices, butter paper rolls and tissue paper on a pastel table"
+Add "same style as the other product photos" to keep the set consistent.
+
+5. CUSTOM PRINTING MOCK-UPS (optional)
+--------------------------------------
+Ask the generator for "mock-up of a [paper cup / kraft bag / straw wrapper / burger box] with a simple green leaf logo printed on it". Use your real client logos once you have permission to show them.
+
+6. WHAT TO CHECK BEFORE PUBLISHING
+----------------------------------
+- Straw counts and cup sizes in the picture should match the product (8 mm is thicker than 6 mm; 8 oz is smaller than 12 oz).
+- Compostable or recyclable claims should match what your supplier certifies.
+- AI images are for illustration. Real photos of your own stock are always the best final step.

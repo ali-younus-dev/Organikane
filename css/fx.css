@@ -1,0 +1,172 @@
+/* Organikane — motion & scene styles (loaded after style.css) */
+
+/* ---------- scroll progress (a bamboo-green bar under the very top edge) ---------- */
+.progress{position:fixed;left:0;right:0;top:0;height:4px;z-index:80;pointer-events:none}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--canopy),var(--bamboo));transform:scaleX(0);transform-origin:left;border-radius:0 4px 4px 0}
+
+/* ---------- reveal on scroll ---------- */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 90ms)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv-wipe{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .rv-wipe.in{clip-path:inset(0 0 0 0)}
+
+/* ---------- hero depth ---------- */
+.leaves{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero__in{z-index:1}
+.hero::before{transform:translate(calc(var(--mx,0) * -26px),calc(var(--my,0) * -18px));transition:transform .4s ease-out}
+.hero__emblem{position:absolute;right:-7%;top:12%;width:min(46vw,620px);opacity:.07;pointer-events:none;animation:spin 90s linear infinite;z-index:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* headline words rise one by one */
+.slide .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.slide .w>span{display:inline-block;transform:translateY(112%)}
+.slide.is-active .w>span{transform:none;transition:transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d) * 70ms + 160ms)}
+
+/* callout pins on the hero photos */
+.pin{position:absolute;left:var(--x);top:var(--y);z-index:3;line-height:1;transform:translate(-50%,-50%)}
+.pin i{display:block;width:16px;height:16px;border-radius:50%;background:var(--bamboo);border:3px solid #fff;box-shadow:0 4px 12px rgba(20,41,26,.3);position:relative}
+.pin i::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid var(--bamboo);opacity:0;animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+.pin b{position:absolute;left:26px;top:50%;transform:translate(-14px,-50%) scale(.85);transform-origin:left center;opacity:0;white-space:nowrap;background:#fff;color:var(--deep);font:600 .78rem/1 var(--head);padding:.7em 1.1em;border-radius:99px;box-shadow:0 10px 24px rgba(20,41,26,.2);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.pin--l b{left:auto;right:26px;transform:translate(14px,-50%) scale(.85);transform-origin:right center}
+.art.is-active .pin b{opacity:1;transform:translate(0,-50%) scale(1);transition-delay:calc(.9s + var(--k,0) * .22s)}
+.art.is-active .pin i{animation:pop .6s cubic-bezier(.2,.9,.3,1.4) both;animation-delay:calc(.7s + var(--k,0) * .22s)}
+.pin i{animation:none}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+
+/* ---------- ticker ---------- */
+.ticker{background:var(--deep);padding-block:26px;overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--deep),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--deep),transparent)}
+.ticker__track{display:flex;gap:18px;width:max-content;list-style:none;margin:0;padding:0;animation:marquee 90s linear infinite}
+.ticker:hover .ticker__track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(calc(-50% - 9px))}}
+.tk{display:flex;align-items:center;gap:14px;padding:8px 26px 8px 8px;border-radius:99px;background:rgba(255,255,255,.07);color:#fff;font:500 .88rem var(--head);white-space:nowrap}
+.tk__tile{width:64px;height:64px;border-radius:50%;overflow:hidden;flex:none}
+.tk__tile svg{width:100%;height:100%;display:block;transform:scale(1.15)}
+
+/* ---------- story: sugarcane to soil ---------- */
+.story{padding-block:clamp(72px,9vw,120px);background:linear-gradient(180deg,var(--mist),#E7F0DC);overflow:hidden}
+.story__track{--p:0;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,2vw,28px);position:relative;counter-reset:s}
+.story__track::before,.story__track::after{content:"";position:absolute;left:10%;right:10%;top:20px;height:8px;border-radius:4px}
+.story__track::before{background:rgba(20,41,26,.12)}
+.story__track::after{background:linear-gradient(90deg,var(--canopy),var(--bamboo));transform:scaleX(var(--p));transform-origin:left}
+.stage{position:relative;text-align:center;padding-top:0}
+.stage__node{display:block;width:48px;height:48px;margin:0 auto 22px;border-radius:50%;background:#fff;border:6px solid rgba(20,41,26,.12);position:relative;z-index:1;transition:border-color .5s,background .5s,transform .5s cubic-bezier(.2,.9,.3,1.4)}
+.stage.is-on .stage__node{border-color:var(--canopy);background:var(--bamboo);transform:scale(1.15)}
+.stage__art{width:min(100%,200px);margin:0 auto 18px;aspect-ratio:1;transform:scale(.85);opacity:.45;transition:transform .8s cubic-bezier(.2,.9,.3,1.2),opacity .8s}
+.stage.is-on .stage__art{transform:none;opacity:1}
+.stage__art svg{width:100%;height:100%;display:block;overflow:visible}
+.stage h3{font:600 1.1rem/1.25 var(--head);margin-bottom:.5em}
+.stage p{font-size:1.02rem;line-height:1.5;color:var(--ink-soft);margin:0 auto;max-width:17em}
+.story__note{margin:clamp(28px,4vw,48px) 0 0;font-size:.98rem;color:var(--ink-soft);max-width:44em}
+
+.stage svg *{animation-play-state:paused}
+.stage.is-on svg *{animation-play-state:running}
+.stalk{transform-box:fill-box;transform-origin:50% 100%;animation:sway 4.5s ease-in-out infinite alternate;animation-delay:var(--d,0s)}
+@keyframes sway{from{transform:rotate(calc(var(--r,2deg) * -1))}to{transform:rotate(var(--r,2deg))}}
+.roller{transform-box:fill-box;transform-origin:50% 50%;animation:roll 2.4s linear infinite;animation-direction:var(--dir,normal)}
+.roller--b{animation-direction:reverse}
+@keyframes roll{to{transform:rotate(360deg)}}
+.cane-in{animation:feed 3.2s ease-in-out infinite}
+@keyframes feed{0%{transform:translateX(-34px);opacity:0}15%{opacity:1}70%{transform:translateX(10px);opacity:1}100%{transform:translateX(18px);opacity:0}}
+.fibre{animation:fibre 3.2s ease-in-out infinite}
+@keyframes fibre{0%,30%{transform:translateX(-14px);opacity:0}55%{opacity:1}100%{transform:translateX(14px);opacity:0}}
+.drop{animation:drip 1.6s ease-in infinite;animation-delay:var(--d,0s)}
+@keyframes drip{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(26px);opacity:0}}
+.mould{animation:press 3.4s ease-in-out infinite}
+@keyframes press{0%,12%{transform:translateY(0)}45%,62%{transform:translateY(50px)}100%{transform:translateY(0)}}
+.heat path{animation:rise 2.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes rise{0%{transform:translateY(8px);opacity:0}40%{opacity:.8}100%{transform:translateY(-8px);opacity:0}}
+.spark{transform-box:fill-box;transform-origin:center;animation:twinkle 2.4s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes twinkle{0%,100%{transform:scale(.3) rotate(0);opacity:0}50%{transform:scale(1) rotate(45deg);opacity:1}}
+.frag{transform-box:fill-box;transform-origin:center;animation:crumble 6s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes crumble{0%,15%{transform:scale(1);opacity:1}60%,100%{transform:scale(.2) translateY(6px);opacity:0}}
+.sprout{transform-box:fill-box;transform-origin:50% 100%;animation:grow 6s ease-in-out infinite}
+@keyframes grow{0%,20%{transform:scaleY(0)}55%,88%{transform:scaleY(1)}100%{transform:scaleY(0)}}
+.leafpop{transform-box:fill-box;transform-origin:var(--o,0% 100%);animation:leafpop 6s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes leafpop{0%,45%{transform:scale(0)}65%,88%{transform:scale(1)}100%{transform:scale(0)}}
+
+/* ---------- product card motion ---------- */
+.grid.stagger .card{animation:cardIn .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(min(var(--i,0),14) * 55ms)}
+@keyframes cardIn{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:none}}
+.card__media{transform-style:preserve-3d;will-change:transform;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.card__media.tilting{transition:transform .08s linear}
+.card__open:hover .card__media{box-shadow:0 26px 40px -18px rgba(20,41,26,.4)}
+.card__media::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(240px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.55),transparent 60%);opacity:0;transition:opacity .3s}
+.card__open:hover .card__media::after{opacity:1}
+/* drawn-art details */
+.sway{transform-box:view-box;transform-origin:120px 206px;transition:transform .7s cubic-bezier(.2,.9,.3,1.3)}
+.card__open:hover .sway,.pdlg__media .sway{transform:rotate(-3deg) scale(1.03)}
+.steam path{animation:steam 3s ease-in-out infinite;opacity:0}
+.steam path:nth-child(2){animation-delay:-1s}
+.steam path:nth-child(3){animation-delay:-2s}
+@keyframes steam{0%{transform:translateY(8px);opacity:0}35%{opacity:.85}100%{transform:translateY(-10px);opacity:0}}
+.bob{animation:bob 3.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+/* ---------- logo studio ---------- */
+.studio{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:calc(var(--r) + 10px);padding:clamp(16px,2.4vw,26px);display:grid;gap:16px}
+.studio__ctrl{display:grid;gap:14px;grid-template-columns:1fr auto;align-items:end}
+.studio label.lbl{display:grid;gap:7px;font:500 .8rem var(--head);color:rgba(255,255,255,.75)}
+.studio input[type=text]{height:46px;border-radius:14px;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);color:#fff;font:500 1rem var(--head);padding:0 1em;width:100%}
+.studio input[type=text]::placeholder{color:rgba(255,255,255,.45)}
+.studio input[type=text]:focus{outline:0;border-color:var(--bamboo);box-shadow:0 0 0 3px rgba(140,188,88,.3)}
+.upload{position:relative;display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 1.2em;border-radius:14px;border:1.5px dashed rgba(255,255,255,.4);color:#fff;font:600 .85rem var(--head);cursor:pointer;white-space:nowrap}
+.upload:hover{border-color:var(--bamboo);color:var(--bamboo)}
+.upload input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.upload:focus-within{outline:3px solid var(--bamboo);outline-offset:3px}
+.studio__row2{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.swatches{display:flex;gap:10px;align-items:center}
+.swatches span{font:500 .8rem var(--head);color:rgba(255,255,255,.75);margin-right:4px}
+.sw{width:34px;height:34px;border-radius:50%;border:3px solid transparent;cursor:pointer;padding:0;box-shadow:0 0 0 1.5px rgba(255,255,255,.35) inset;transition:transform .25s cubic-bezier(.2,.9,.3,1.4)}
+.sw:hover{transform:scale(1.12)}
+.sw[aria-checked="true"]{border-color:var(--bamboo);transform:scale(1.12)}
+.linkbtn--light{color:rgba(255,255,255,.8)}
+.studio__stage{border-radius:var(--r);background:radial-gradient(120% 90% at 30% 10%,#F4F8EC,#DDE9CE);overflow:hidden;aspect-ratio:4/3}
+.studio__stage svg{display:block;width:100%;height:100%}
+.studio__foot{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
+.studio__note{margin:0;font-size:.92rem;color:rgba(255,255,255,.65);max-width:30em}
+.s-float{animation:bob 4.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.s-pop{animation:stamp .5s cubic-bezier(.2,.9,.3,1.4)}
+@keyframes stamp{0%{transform:scale(.94)}60%{transform:scale(1.03)}100%{transform:none}}
+.st-bag{fill:var(--bag)}.st-bag2{fill:var(--bag2)}.st-cup{fill:var(--cup)}.st-lid{fill:var(--lid)}
+.st-box{fill:var(--box)}.st-box2{fill:var(--box2)}.st-box3{fill:var(--box3)}.st-wrap{fill:var(--wrap)}
+.st-ink{fill:var(--ink)}.st-accent{fill:var(--accent)}.st-handle{stroke:var(--handle)}
+
+/* ---------- footer ---------- */
+.site-footer{position:relative;overflow:hidden;overflow:clip}
+.foot-emblem{position:absolute;right:-90px;bottom:-110px;width:420px;height:auto!important;opacity:.07;pointer-events:none;animation:spin 120s linear infinite}
+.site-footer__in{position:relative}
+
+/* ---------- responsive ---------- */
+@media (max-width:1020px){
+  .story__track{grid-template-columns:1fr;gap:0;max-width:520px;margin-inline:auto}
+  .story__track::before,.story__track::after{left:23px;right:auto;top:24px;bottom:24px;width:8px;height:auto}
+  .story__track::after{transform:scaleY(var(--p));transform-origin:top}
+  .stage{display:grid;grid-template-columns:48px 1fr;column-gap:22px;text-align:left;padding-bottom:36px}
+  .stage__node{margin:0;grid-row:span 3}
+  .stage__art{width:130px;margin:0 0 12px;transform-origin:left center}
+  .stage p{margin:0}
+  .studio__ctrl{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .pin{display:none}
+  .tk__tile{width:52px;height:52px}
+  .progress{height:3px}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .rv,.js .rv-wipe{opacity:1;transform:none;clip-path:none}
+  .slide .w>span{transform:none}
+  .ticker__track,.hero__emblem,.foot-emblem{animation:none}
+  .ticker{overflow-x:auto}
+  .pin i::after{animation:none}
+  .art.is-active .pin b{opacity:1;transform:translate(0,-50%)}
+  .pin b{opacity:1;transform:translate(0,-50%)}
+}
+
+/* ---------- real photos: cover-cropped product shots ---------- */
+.card__media img.ph,.pdlg__media img.ph{object-fit:cover;padding:0;filter:none}
+.card__media img.ph{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card__open:hover .card__media img.ph{transform:scale(1.08)}
