@@ -38,10 +38,12 @@
     ['stacks-still-life', 1, 'Plates, trays and wrapped paper'],
     ['cutlery-banner', 1.7778, 'Wooden cutlery with bagasse tableware'],
     ['straws-in-cup', 1, 'Black, white and kraft paper straws'],
-    ['tissue-and-mat', 1.7778, 'Tissue, kraft table mats and cutlery'],
+    ['tissue-and-mat', 1.7778, 'Wrapped packs, kraft table mats and cutlery'],
     ['wooden-cutlery', 1, 'Wooden cutlery with a branded tag'],
     ['straws-range', 1.7778, 'Paper-wrapped, bendy and straight straws'],
-    ['tissue-and-paper', 1, 'Tissue and kraft paper, ready to brand'],
+    ['white-napkins', 1, 'Soft white napkins, ready to brand'],
+    ['white-napkins-band', 1, 'White napkins with a branded band'],
+    ['foil-container', 1, 'Aluminium container with a printed lid'],
     ['marble-takeaway', 1.7778, 'Burger box, dessert box and sauces on kraft']
   ];
   var look = $('#look'), track = $('#lookTrack');
@@ -84,7 +86,7 @@
     ['cups-and-cans', 'Cafés and coffee shops', 'Cups, lids, straws and cans.', 'cups', 'Shop cups and cans'],
     ['bags-and-sandwiches', 'Takeaway and delivery', 'Bags, boxes, mats and cutlery.', 'paper', 'Shop paper and bags'],
     ['takeaway-table', 'Events and catering', 'Boxes, plates and dips that feed a crowd.', 'food', 'Shop food packaging'],
-    ['bag-and-bread', 'Bakeries and sweets', 'Kraft bags, butter paper and tissue.', 'paper', 'Shop paper and bags']
+    ['bag-and-bread', 'Bakeries and sweets', 'Kraft bags, butter paper and napkins.', 'paper', 'Shop paper and bags']
   ];
   var bento = $('#bento');
   if (bento) {
