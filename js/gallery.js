@@ -41,7 +41,8 @@
     ['tissue-and-mat', 1.7778, 'Tissue, kraft table mats and cutlery'],
     ['wooden-cutlery', 1, 'Wooden cutlery with a branded tag'],
     ['straws-range', 1.7778, 'Paper-wrapped, bendy and straight straws'],
-    ['tissue-and-paper', 1, 'Tissue and kraft paper, ready to brand']
+    ['tissue-and-paper', 1, 'Tissue and kraft paper, ready to brand'],
+    ['marble-takeaway', 1.7778, 'Burger box, dessert box and sauces on kraft']
   ];
   var look = $('#look'), track = $('#lookTrack');
   if (look && track) {
