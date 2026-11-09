@@ -124,4 +124,17 @@
     }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
     late.forEach(function (el) { io.observe(el); });
   } else { late.forEach(function (el) { el.classList.add('in'); }); }
+
+  /* ---------- count-up numbers in the dark banner ---------- */
+  var counts = $$('[data-count]');
+  if (counts.length && 'IntersectionObserver' in window && !reduce) {
+    var cio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return; cio.unobserve(e.target);
+        var el = e.target, to = +el.getAttribute('data-count'), t0 = performance.now(), dur = 1400;
+        (function step(t) { var k = clamp((t - t0) / dur, 0, 1), v = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(to * v); if (k < 1) requestAnimationFrame(step); })(t0);
+      });
+    }, { threshold: .6 });
+    counts.forEach(function (el) { el.textContent = '0'; cio.observe(el); });
+  }
 })();
